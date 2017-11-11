@@ -2,14 +2,14 @@
 var title = ["mario bros", "mortal kombat", 
               "doom","donkey kong", "pong"];
 // Letters
-var letters = ["a", "b", "c", "d", "e", "f", "g", "h",
+var letter = ["a", "b", "c", "d", "e", "f", "g", "h",
                "i", "j", "k", "l", "m", "n", "o", "p", 
                "q", "r", "s", "t", "u", "v", "w", "x", 
                "y", "z"];
 // Other Variables 
 var lives = 9;
 var wins = 0;
-var blankSpaces = "";
+
 
 
 (function(){
@@ -28,6 +28,7 @@ var blankSpaces = "";
     }
 
     // Displays possible words blank spaces
+    var blankSpaces = "";
     var wordLength = possibleTitle.length;
     for (i = 0; i < wordLength; i++) {
       var x = possibleTitle.charAt(i);
@@ -38,27 +39,39 @@ var blankSpaces = "";
       else { 
         blankSpaces += "_";
       }
+      document.getElementById("blank-spaces").innerHTML = blankSpaces;
     }
-    document.getElementById("blank-spaces").innerHTML = blankSpaces;
-  };
+    
   
 
-
-
-
     document.onkeypress = function(keyPressed) {
-      var keyPressed = keyPressed || window.event;
+      var keyPressed = keyPressed;
       charCode = keyPressed.keyCode || keyPressed.which,
       lettersGuessed = String.fromCharCode(charCode);
 
+      // var blankSpaces = possibleTitle[i];
 
-      var userGuess
-        if (title.indexOf(userGuess) > -1) {
-         alert("Your guess is correct.")
+      if (possibleTitle.includes(lettersGuessed)) {
+        for (i = 0; i < wordLength; i++) {
+          var x = lettersGuessed;
+
+          if (x === possibleTitle[i]) {
+            blankSpaces += x;
+          }
+
+          document.getElementById("blank-spaces").innerHTML = lettersGuessed;
+
+
+        // for (i = 0; i < possibleTitle.length; i++){
+        //   if (lettersGuessed == possibleTitle[i]){
+        //     blankSpaces[i] = lettersGuessed;
+        //   }
         }
-        // else {
-        //  alert("Your guess is wrong.")
-        // }
+
+      
+      }
+
+
 
 
 
@@ -76,15 +89,7 @@ var blankSpaces = "";
 
 
 
-    // var userGuess = event.key.toLowerCase();
-
-    // if (title.includes(userGuess)) {
-    //   for (var i = 0; i < possibleTitle.length; i++) {
-    //     if (userGuess == title[i]) {
-    //       blankSpaces[i] = userGuess;
-    //     }
-    //   }
-    // }
+    
 
 
 
@@ -96,8 +101,11 @@ var blankSpaces = "";
       }
 
     }
+};
     getItem();
 })();
+
+
 					
 //Spare Video Game Title Bank
   // "pac man", "tetris", "space invaders", 
@@ -111,6 +119,23 @@ var blankSpaces = "";
 //   for (i = 0; i < titles.length; i++) {
 //     if (keyPressed == titles[i]) {
 //       blankSpaces[i] = keyPressed;
+//     }
+//   }
+// }
+
+// var userGuess
+//   if (title.indexOf(userGuess) > -1) {
+//    alert("Your guess is correct.")
+//   }
+// else {
+//  alert("Your guess is wrong.")
+// }
+// var userGuess = event.key.toLowerCase();
+
+// if (title.includes(userGuess)) {
+//   for (var i = 0; i < possibleTitle.length; i++) {
+//     if (userGuess == title[i]) {
+//       blankSpaces[i] = userGuess;
 //     }
 //   }
 // }
