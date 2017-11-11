@@ -1,16 +1,25 @@
+// Video Games Titles
+var titles = ['mario bros', 'final fantasy', 'mortal kombat', 
+              'doom'];
+// Letters
+var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
+           'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 
+           'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 
+           'y', 'z'];
+// Other Variables 
+var lives = 9;
+var wins = 0;
+var blankSpaces = "";
+var lettersGuessed = [];
+
 (function(){
 
-// Lives
-var lives = 9;
-
 // KeyPress Capture Function
-
 var getItem = function () {
 
-	// Video Games Titles
-	var titles = ['Mario Bros', 'Final Fantasy', 'Mortal Kombat', 
-						'Doom'];
+
 	var possibleTitle = titles[Math.floor(Math.random() * titles.length)];
+
   //Space out possibleWord
   var originalLength = possibleTitle.length;
   for (i = 0; i < originalLength; i++) {
@@ -18,13 +27,13 @@ var getItem = function () {
     possibleTitle.slice(i*2+1)].join('');
   }
 
-  var blankSpaces = "";
+  // Displays possible words blank spaces
   var titleLength = possibleTitle.length;
 
   for (i = 0; i < titleLength; i++) {
     var x = possibleTitle.charAt(i);
 
-    if (x = possibleTitle) {
+    if (x === " " || x === "/'") {
       blankSpaces += x;
     }
     else { 
@@ -32,41 +41,47 @@ var getItem = function () {
     }
   }
   document.getElementById("blankSpaces").innerHTML = blankSpaces;
-};
 
-document.onkeypress = function(keyPressed) {
-  var keyPressed = keyPressed || window.event;
-  charCode = keyPressed.keyCode || keyPressed.which,
-  lettersGuessed = String.fromCharCode(charCode);
 
-document.getElementById("lettersGuessed").innerHTML += lettersGuessed;
-document.getElementById("lives").innerHTML = lives;
-lives--;
+  document.onkeypress = function(keyPressed) {
+    var keyPressed = keyPressed || window.event;
+    charCode = keyPressed.keyCode || keyPressed.which,
+    lettersGuessed = String.fromCharCode(charCode);
 
-if (lives === -1) {
-  alert("Game Over!")
+  document.getElementById("lettersGuessed").innerHTML += lettersGuessed;
+  document.getElementById("lives").innerHTML = lives;
+  lives--;
+
+
+
+
+
+
+  if (lives === -1) {
+    alert("Game Over!")
+    }
+
+
   }
-}
 
+
+};
 getItem();
-
-
-
-
-
-
-
-
 })();
 					
 //Spare Video Game Title Bank
-//  'Pac Man', 'Tetris', 'Space Invaders', 
-//  'Sonic the Hedgehog', 'Donkey Kong', 'Pong', 
-//  'Street Fighter', 'The Legend of Zelda',
-//  'Frogger', 'Mario Kart', 'Asteroids'
+ // 'Pac Man', 'Tetris', 'Space Invaders', 
+ // 'Sonic the Hedgehog', 'Donkey Kong', 'Pong', 
+ // 'Street Fighter', 'The Legend of Zelda',
+ // 'Frogger', 'Mario Kart', 'Asteroids'
 
-// Letters
-// var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
-//            'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 
-//            'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 
-//            'y', 'z'];
+
+
+// Experimental Code
+// if (titles.includes(keyPressed)) {
+//   for (i = 0; i < titles.length; i++) {
+//     if (keyPressed == titles[i]) {
+//       blankSpaces[i] = keyPressed;
+//     }
+//   }
+// }
