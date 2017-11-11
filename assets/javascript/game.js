@@ -1,14 +1,11 @@
 // Video Games Titles
-var titles = ['mario bros', 'final fantasy', 'mortal kombat', 
-              'doom', 'pac man', 'tetris', 'space invaders', 
-              'sonic the hedgehog', 'donkey kong', 'pong', 
-              'street fighter', 'the legend of zelda',
-              'frogger', 'mario kart', 'asteroids'];
+var title = ["mario bros", "mortal kombat", 
+              "doom","donkey kong", "pong"];
 // Letters
-var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
-               'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 
-               'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 
-               'y', 'z'];
+var letters = ["a", "b", "c", "d", "e", "f", "g", "h",
+               "i", "j", "k", "l", "m", "n", "o", "p", 
+               "q", "r", "s", "t", "u", "v", "w", "x", 
+               "y", "z"];
 // Other Variables 
 var lives = 9;
 var wins = 0;
@@ -21,29 +18,28 @@ var lettersGuessed = [];
 var getItem = function () {
 
 
-	var possibleTitle = titles[Math.floor(Math.random() * titles.length)];
+	var possibleTitle = title[Math.floor(Math.random() * title.length)];
 
   //Space out possibleWord
-  var originalLength = possibleTitle.length;
-  for (i = 0; i < originalLength; i++) {
+  var titleLength = possibleTitle.length;
+  for (i = 0; i < titleLength; i++) {
     possibleTitle = [possibleTitle.slice(0, i*2+1), ' ', 
     possibleTitle.slice(i*2+1)].join('');
   }
 
   // Displays possible words blank spaces
-  var titleLength = possibleTitle.length;
-
-  for (i = 0; i < titleLength; i++) {
+  var wordLength = possibleTitle.length;
+  for (i = 0; i < wordLength; i++) {
     var x = possibleTitle.charAt(i);
 
     if (x === " " || x === "/'") {
       blankSpaces += x;
     }
     else { 
-      blankSpaces += "_"
+      blankSpaces += "_";
     }
   }
-  document.getElementById("blankSpaces").innerHTML = blankSpaces;
+  document.getElementById("blank-spaces").innerHTML = blankSpaces;
 
 
   document.onkeypress = function(keyPressed) {
@@ -51,13 +47,21 @@ var getItem = function () {
     charCode = keyPressed.keyCode || keyPressed.which,
     lettersGuessed = String.fromCharCode(charCode);
 
-  document.getElementById("lettersGuessed").innerHTML += lettersGuessed;
-  document.getElementById("lives").innerHTML = lives;
+  document.getElementById("letters-guessed").innerHTML += lettersGuessed;
+  document.getElementById("num-lives").innerHTML = lives;
   lives--;
 
-  if (titles.includes(keyPressed)) {
-    
+
+  var userGuess = event.key.toLowerCase();
+
+  if (title.includes(userGuess)) {
+    for (var i = 0; i < possibleTitle.length; i++) {
+      if (userGuess == title[i]) {
+        blankSpaces[i] = userGuess;
+      }
+    }
   }
+
 
 
 
@@ -74,8 +78,10 @@ getItem();
 })();
 					
 //Spare Video Game Title Bank
-
-
+  // "pac man", "tetris", "space invaders", 
+  // "sonic the hedgehog", "final fantasy", 
+  // "street fighter", "the legend of zelda",
+  // "frogger", "mario kart", "asteroids"
 
 
 // Experimental Code
