@@ -1,11 +1,14 @@
 // Video Games Titles
 var titles = ['mario bros', 'final fantasy', 'mortal kombat', 
-              'doom'];
+              'doom', 'pac man', 'tetris', 'space invaders', 
+              'sonic the hedgehog', 'donkey kong', 'pong', 
+              'street fighter', 'the legend of zelda',
+              'frogger', 'mario kart', 'asteroids'];
 // Letters
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
-           'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 
-           'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 
-           'y', 'z'];
+               'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 
+               'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 
+               'y', 'z'];
 // Other Variables 
 var lives = 9;
 var wins = 0;
@@ -52,6 +55,9 @@ var getItem = function () {
   document.getElementById("lives").innerHTML = lives;
   lives--;
 
+  if (titles.includes(keyPressed)) {
+    
+  }
 
 
 
@@ -61,19 +67,14 @@ var getItem = function () {
     alert("Game Over!")
     }
 
-
   }
-
 
 };
 getItem();
 })();
 					
 //Spare Video Game Title Bank
- // 'Pac Man', 'Tetris', 'Space Invaders', 
- // 'Sonic the Hedgehog', 'Donkey Kong', 'Pong', 
- // 'Street Fighter', 'The Legend of Zelda',
- // 'Frogger', 'Mario Kart', 'Asteroids'
+
 
 
 
