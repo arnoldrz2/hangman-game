@@ -15,7 +15,6 @@ var currentTitle = [];
 var alreadyGuessed = [];
 
 
-
 function newGame () {
   // Beginning Stats
   var lives = 10;
@@ -32,14 +31,27 @@ function newGame () {
   for (var i = 0; i < title.length; i++) {
     currentTitle.push(blankSpace);
   }
-
   $('#current-title').html(currentTitle);
 
 
+  //User Presses Key To Guess Leters
+  document.onkeyup = function(event) {
+    userGuess = event.key.toLowerCase();
+
+  if(title.includes(userGuess)) {
+    for (i=0; i < title.length; i++) {
+      if (userGuess == title[i]) {
+        currentTitle[i] = userGuess;
+      }
+    }
+    $('#current-title').html(currentTitle);
+  }
 
 
 
 
 
+
+  }
 }
 newGame();
