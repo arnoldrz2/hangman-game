@@ -1,3 +1,6 @@
+// THIS IS OLD. I'M NOT CURRENTLY USING THIS. KEEPING AS REFERENCE. WILL DELETE LATER.
+
+
 // Video Games Titles
 var title = ["mario bros", "mortal kombat", 
               "doom","donkey kong", "pong"];
@@ -19,6 +22,7 @@ var wins = 0;
 
 
   	var possibleTitle = title[Math.floor(Math.random() * title.length)];
+
 
     //Space out possibleWord
     var titleLength = possibleTitle.length;
@@ -55,7 +59,7 @@ var wins = 0;
         for (i = 0; i < wordLength; i++) {
           var x = lettersGuessed;
 
-          if (x === possibleTitle[i]) {
+          if (x === possibleTitle[i] && x === letter[i]) {
             blankSpaces += x;
           }
 
