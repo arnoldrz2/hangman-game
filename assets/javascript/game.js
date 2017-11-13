@@ -82,7 +82,7 @@ var wins = 0;
 
 
 
-    document.getElementById("letters-guessed").innerHTML += lettersGuessed + ", ";
+    document.getElementById("already-guessed").innerHTML += lettersGuessed + ", ";
     document.getElementById("num-lives").innerHTML = lives;
     lives--;
 

@@ -29,7 +29,7 @@ function newGame () {
   console.log(title);
 
   //Title Gets Loaded Onto Screen As Blank Spaces
-  var blankSpace = "_";
+  var blankSpace = "_ ";
   for (i = 0; i < title.length; i++) {
       currentTitle.push(blankSpace);
     }
@@ -61,8 +61,6 @@ function newGame () {
 
 
  
-  
-
 
 
 
