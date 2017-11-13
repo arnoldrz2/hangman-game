@@ -1,9 +1,10 @@
+window.onload = function() {
 // Array of Video Games Titles
-var titles = ["mario bros", "mortal kombat", 
-              "doom","donkey kong", "pong", "pac man", 
-              "tetris", "space invaders", "sonic the hedgehog", 
-              "final fantasy", "street fighter", 
-              "the legend of zelda", "frogger", "mario kart", "asteroids"];
+var titles = ["mariobros", "mortalkombat", 
+              "doom","donkeykong", "pong", "pacman", 
+              "tetris", "spaceinvaders", "sonicthehedgehog", 
+              "finalfantasy", "streetfighter", 
+              "thelegendofzelda", "frogger", "mariokart", "asteroids"];
 // Array of Letters
 var letters = ["a", "b", "c", "d", "e", "f", "g", "h",
                "i", "j", "k", "l", "m", "n", "o", "p", 
@@ -14,6 +15,7 @@ var lettersGuessed = "";
 var currentTitle = [];
 var alreadyGuessed = [];
 
+// alert("Press Enter to Begin!")
 
 function newGame () {
   // Beginning Stats
@@ -27,11 +29,12 @@ function newGame () {
   console.log(title);
 
   //Title Gets Loaded Onto Screen As Blank Spaces
-  var blankSpace = "_ "
-  for (var i = 0; i < title.length; i++) {
-    currentTitle.push(blankSpace);
-  }
+  var blankSpace = "_ ";
+  for (i = 0; i < title.length; i++) {
+      currentTitle.push(blankSpace);
+    }
   $('#current-title').html(currentTitle);
+
 
 
   //User Presses Key To Guess Leters
@@ -42,16 +45,41 @@ function newGame () {
     for (i=0; i < title.length; i++) {
       if (userGuess == title[i]) {
         currentTitle[i] = userGuess;
+        alreadyGuessed.push(userGuess);
       }
     }
     $('#current-title').html(currentTitle);
+    $('#already-guessed').text(alreadyGuessed.join(', '));
+  }
+
+  else {
+    lives--;
+    $('#num-lives').text(lives);
+    alreadyGuessed.push(userGuess);
+    $('#already-guessed').text(alreadyGuessed.join(', '));
   }
 
 
+ 
+  
 
 
+
+
+
+
+
+  if (lives === 0) {
+    alert("Game Over! Try Again?")
+    window.location.reload();
+  }
 
 
   }
 }
 newGame();
+}
+
+
+// Extra Code
+// $('#already-guessed').html(alreadyGuessed);
