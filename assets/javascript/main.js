@@ -29,7 +29,7 @@ function newGame () {
   console.log(title);
 
   //Title Gets Loaded Onto Screen As Blank Spaces
-  var blankSpace = "_ ";
+  var blankSpace = "_";
   for (i = 0; i < title.length; i++) {
       currentTitle.push(blankSpace);
     }
@@ -39,15 +39,33 @@ function newGame () {
 
   //User Presses Key To Guess Leters
   document.onkeyup = function(event) {
-    userGuess = event.key.toLowerCase();
+    var keyPress = event.key.toLowerCase();
+    console.log(event.key);
+      for (i=0; i < letters.length; i++){
+        if (keyPress === letters[i]){
+          userGuess = event.key.toLowerCase();
+          } 
+        }
+
 
   if(title.includes(userGuess)) {
     for (i=0; i < title.length; i++) {
-      if (userGuess == title[i]) {
+      if (userGuess == title[i]) { 
         currentTitle[i] = userGuess;
         alreadyGuessed.push(userGuess);
       }
     }
+
+// && add some way to check if return if true or false. then act accordingly
+// 
+// for (i=0; i< alreadyGuessed.lenth; i++){
+//  if(userGuess === alreadyGuessed[i])
+//    do not push 
+// } put into function and say if userGuess === alreadyGuessed[i] 
+//    return true or assign true to a variable
+//  
+// 
+// 
     $('#current-title').html(currentTitle);
     $('#already-guessed').text(alreadyGuessed.join(', '));
   }

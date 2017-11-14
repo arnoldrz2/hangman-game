@@ -5,19 +5,20 @@
 	<meta charset="utf-8">
 	<title>Hangman | Classic Video Games</title>
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link href="https://fonts.googleapis.com/css?family=Bangers|Press+Start+2P" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<!-- Added link to the jQuery library -->
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
-	<div>
+	<div id="title">
 		<header>Hangman</header>
 		<br>
 		<h1>Classic Video Games</h1>
 	</div>
 
-	<div>
+	<div id="screen">
 		<br>
 		<p>
 			This game of Hangman contains titles of many classic video games. Titles will only include the main title of the game and don't include any numbers. For example: Something like, "Call of Duty 4: Modern Warfare" wouldn't be included, but the main title "Call of Duty" could be included.
@@ -27,29 +28,16 @@
 			Hint: "Classic Video Games" could refer to any video game that released before the year 2000.  	
 		</p>
 		<br>
-		<p>
-			Press any key to begin!			
+		<p>Press any key to begin!</p>
+		<br>
+		<p>Wins<br><span id="num-wins"></span></p>
+		<br>
+		<p>Current Title<br><span id="current-title"></span></p>
+		<br>
+		<p>Number of Lives Remaining<br><span id="num-lives"></span>
 		</p>
 		<br>
-		<p>
-			Wins <br>
-			<span id="num-wins"></span>
-		</p>
-		<br>
-		<p>
-			Current Title <br>
-			<span id="current-title"></span>
-		</p>
-		<br>
-		<p>
-			Number of Lives Remaining <br>
-			<span id="num-lives"></span>
-		</p>
-		<br>
-		<p>
-			Letters Already Guessed <br>
-			<span id="already-guessed"></span>
-		</p>
+		<p>Letters Already Guessed<br><span id="already-guessed"></span></p>
 
 
 
